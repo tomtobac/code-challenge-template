@@ -6,12 +6,11 @@ export type Props = {};
 
 export const PlanetList: React.FC<Props> = () => {
   const { isLoading, data, isError, isFetched } = usePlanets();
-
   return (
     <section>
       <h1>Hi PlanetList</h1>
       {isLoading && <Loading />}
-      {isError && <p>ups, error!</p>}
+      {isError && <p>ups, someting went wrong!</p>}
       {isFetched && (
         <ol>
           {data?.map((planet) => (

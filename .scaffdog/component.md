@@ -40,6 +40,9 @@ import { {{ inputs.name | pascal }} } from "./";
 
 describe("{{ inputs.name | pascal }}", () => {
   it.todo("should be made", () => {
+    // Arrange
+    // Act
+    // Assert
     expect(true).toBe(false);
   });
 });
