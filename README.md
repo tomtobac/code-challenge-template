@@ -39,11 +39,14 @@ tbd...
 
 ### 🖊 Improvements
 
-- feat:
-- bugfix:
-- docs:
-- ui:
-- refactor:
+- build
+- ci
+- docs
+- feat
+- fix
+- perf
+- refactor
+- test
 
 ### 🧪 Coverage
 

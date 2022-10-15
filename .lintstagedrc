@@ -1,6 +1,7 @@
 {
-  "src/**/*.{ts,tsx,css}": [
+  "src/**/*.(ts|tsx|css)": [
     "eslint",
-    "prettier --check"
+    "prettier --check",
+    "vitest related --run"
   ]
 }
