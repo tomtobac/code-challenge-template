@@ -1,0 +1,24 @@
+import { Loading } from "@components/Loading";
+import { usePlanets } from "@hooks/usePlanets";
+import "./PlanetList.css";
+
+export type Props = {};
+
+export const PlanetList: React.FC<Props> = () => {
+  const { isLoading, data, isError, isFetched } = usePlanets();
+
+  return (
+    <section>
+      <h1>Hi PlanetList</h1>
+      {isLoading && <Loading />}
+      {isError && <p>ups, error!</p>}
+      {isFetched && (
+        <ol>
+          {data?.map((planet) => (
+            <li key={planet.name}>{planet.name}</li>
+          ))}
+        </ol>
+      )}
+    </section>
+  );
+};
