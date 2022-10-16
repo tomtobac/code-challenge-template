@@ -1,7 +1,7 @@
 import { server } from "@test/server";
 import { rest } from "msw";
 import { waitFor, screen } from "@testing-library/react";
-import { renderWithReactQuery, queryClient } from "@test/utils";
+import { renderWithReactQuery } from "@test/utils";
 import { PlanetList } from "./";
 
 describe("PlanetList", () => {
@@ -22,6 +22,15 @@ describe("PlanetList", () => {
     await waitFor(() =>
       expect(screen.queryAllByRole("listitem")).toHaveLength(3)
     );
+  });
+  it.only("should show a loading spinner", async () => {
+    server.use(
+      rest.get(/planets/i, (req, res, ctx) => {
+        return res(ctx.delay(500), ctx.json({ results: [] }));
+      })
+    );
+    renderWithReactQuery(<PlanetList />);
+    expect(screen.getByRole("status")).toBeInTheDocument();
   });
   it("should show an error message", async () => {
     server.use(
