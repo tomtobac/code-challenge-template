@@ -1,15 +1,13 @@
 import { render } from "@testing-library/react";
-import { QueryClient, QueryClientProvider, setLogger } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export const queryClient = new QueryClient({
+  logger: {
+    log: () => {},
+    warn: () => {},
+    error: () => {},
+  },
   defaultOptions: { queries: { retry: false, cacheTime: 0 } },
-});
-
-// disable log messages for React Query in test env.
-setLogger({
-  log: () => {},
-  warn: () => {},
-  error: () => {},
 });
 
 export const renderWithReactQuery = (ui: React.ReactElement) => {

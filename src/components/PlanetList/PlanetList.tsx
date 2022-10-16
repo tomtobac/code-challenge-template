@@ -13,7 +13,7 @@ export const PlanetList: React.FC<Props> = () => {
       {isError && <p>ups, someting went wrong!</p>}
       {isFetched && (
         <ol>
-          {data?.map((planet) => (
+          {data.map((planet) => (
             <li key={planet.name}>{planet.name}</li>
           ))}
         </ol>
