@@ -23,7 +23,7 @@ describe("PlanetList", () => {
       expect(screen.queryAllByRole("listitem")).toHaveLength(3)
     );
   });
-  it.only("should show a loading spinner", async () => {
+  it("should show a loading spinner", () => {
     server.use(
       rest.get(/planets/i, (req, res, ctx) => {
         return res(ctx.delay(500), ctx.json({ results: [] }));
